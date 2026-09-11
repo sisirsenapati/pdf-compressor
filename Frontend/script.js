@@ -13,7 +13,7 @@ async function compressPDF() {
     formData.append("file", file);
 
     const response = await fetch(
-        "https://pdf-compressor-nn8p.onrender.com/compress_pdf",
+        "https://pdf-compressor-nn8p.onrender.com/compress",
         {
             method: "POST",
             body: formData
