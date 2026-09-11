@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 import pikepdf
 import tempfile
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -34,3 +35,14 @@ async def compress_pdf(file: UploadFile = File(...)):
         media_type="application/pdf",
         filename="compressed.pdf"
     )
+
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
